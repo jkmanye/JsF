@@ -1,0 +1,190 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #222222;
+}
+.fridge-add-container {
+    width: 100vw;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+.fridge-add-fridge-add {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(34, 34, 34, 1);
+}
+.fridge-add-divregister-email-check {
+    top: 5vh;
+    left: 10vw;
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+    border-radius: 30px;
+}
+.fridge-add-text {
+    top: 5vh;
+    left: 5vw;
+    color: rgba(255, 255, 255, 1);
+    width: 70vw;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-add-text02 {
+    top: 2vh;
+    left: 1vw;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-add-code {
+    top: 90px;
+    left: 30px;
+    width: 240px;
+    height: 36.67832946777344px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.fridge-add-line1 {
+    top: 36.67835998535156px;
+    left: -7.105427357601002e-15px;
+    width: 240px;
+    height: 1px;
+    position: absolute;
+}
+.fridge-add-text04 {
+    color: rgba(255, 255, 255, 1);
+    width: 240px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-add-divregister-email-check1 {
+    top: 250px;
+    left: 30px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+}
+.fridge-add-text06 {
+    top: 30px;
+    left: 22px;
+    color: rgba(255, 255, 255, 1);
+    width: 256px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-add-btnfridgecode1 {
+    top: 150px;
+    left: 110px;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+}
+.fridge-add-text08 {
+    top: 8px;
+    left: 5px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-add-code1 {
+    top: 90px;
+    left: 30px;
+    width: 240px;
+    height: 36.67832946777344px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.fridge-add-line11 {
+    top: 36.67835998535156px;
+    left: -7.105427357601002e-15px;
+    width: 240px;
+    height: 1px;
+    position: absolute;
+}
+.fridge-add-text10 {
+    color: rgba(255, 255, 255, 1);
+    width: 240px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}

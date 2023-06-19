@@ -1,0 +1,115 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #222222;
+}
+.captcha-confirmation-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+.captcha-confirmation-captcha-confirmation {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(34, 34, 34, 1);
+}
+.captcha-confirmation-divcaptchacode {
+    top: 18vh;
+    left: 10vw;
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+    border-radius: 30px;
+}
+.captcha-confirmation-text {
+    top: 10vh;
+    color: rgba(255, 255, 255, 1);
+    width: 80vw;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.captcha-confirmation-btncaptchacode {
+    top: 45vh;
+    left: 30vw;
+    width: 25vw;
+    height: 5vh;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+}
+.captcha-confirmation-text5 {
+    top: 8px;
+    left: 5px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.captcha-confirmation-captcha-code {
+    top: 196px;
+    left: 30px;
+    width: 240px;
+    height: 33.010498046875px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.captcha-confirmation-line1 {
+    top: 33.010498046875px;
+    left: 0px;
+    width: 240px;
+    height: 1px;
+    position: absolute;
+}
+.captcha-confirmation-text7 {
+    color: rgba(255, 255, 255, 1);
+    width: 240px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}

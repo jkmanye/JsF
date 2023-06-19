@@ -1,0 +1,305 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #222222;
+}
+.fridge-view-container {
+    width: 100vw;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+.fridge-view-fridge-view {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(34, 34, 34, 1);
+}
+.fridge-view-divfridge {
+    top: 5vh;
+    left: 10vw;
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+    border-radius: 30px;
+}
+.fridge-view-imgfridge {
+    top: 3vh;
+    left: 3vw;
+    width: 100px;
+    height: 140px;
+    position: absolute;
+}
+@media (max-width: 500px) {
+    .fridge-view-imgfridge {
+        top: 3vh;
+        left: 3vw;
+        width: 20vw;
+        height: 28vw;
+        position: absolute;
+    }
+}
+.fridge-view-text {
+    top: 6vh;
+    left: 28vw;
+    color: rgba(255, 255, 255, 1);
+    width: 40vw;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-view-btnviewmore {
+    text-align: center;
+    top: 15vh;
+    left: 25vw;
+    width: 20vw;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-view-text2 {
+    top: 8px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-view-btndelete {
+    text-align: center;
+    top: 15vh;
+    left: 50vw;
+    width: 20vw;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(94, 22, 0, 1);
+
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-view-text4 {
+    top: 8px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-view-divfridgeadd {
+    top: 37vh;
+    left: 10vw;
+    width: 80vw;
+    height: 8vh;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+    border-radius: 25px;
+    vertical-align: center;
+    margin: auto;
+}
+.fridge-view-divbg {
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    border-radius: 25px;
+}
+.fridge-view-text6 {
+    /*left: 0px;*/
+    color: rgba(255, 255, 255, 1);
+    width: 80vw;
+    height: 8vh;
+    position: absolute;
+    font-size: 36px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    /*line-height: normal;*/
+    font-stretch: normal;
+    text-decoration: none;
+    /*margin: auto;*/
+    vertical-align: center;
+    display: block;
+    line-height: 8vh;
+}
+.fridge-view-nav-bar {
+    top: 568px;
+    left: 0px;
+    width: 360px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(29, 29, 29, 1);
+}
+.fridge-view-navhome {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background-color: rgba(64, 64, 64, 0);
+}
+.fridge-view-home2 {
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+.fridge-view-navfridge {
+    top: 0px;
+    left: 72px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background-color: rgba(64, 64, 64, 1);
+}
+.fridge-view-fridge3 {
+    top: 11px;
+    left: 11px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+.fridge-view-navrecipe {
+    top: 0px;
+    left: 144px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background-color: rgba(64, 64, 64, 0);
+}
+.fridge-view-recipe2 {
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+.fridge-view-navaccount {
+    top: 0px;
+    left: 216px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background-color: rgba(64, 64, 64, 0);
+}
+.fridge-view-account2 {
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+.fridge-view-navquit {
+    top: 0px;
+    left: 288px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background-color: rgba(64, 64, 64, 0);
+}
+.fridge-view-leave2 {
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}

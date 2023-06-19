@@ -1,0 +1,131 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #222222;
+}
+.nav-bar-container {
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+.nav-bar-nav-bar {
+    bottom: 0;
+    width: 100vw;
+    height: 20vw;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(29, 29, 29, 1);
+}
+.nav-bar-navhome {
+    bottom: 0;
+    left: 0px;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 1vw;
+    background-color: rgba(64, 64, 64, 1);
+}
+.nav-bar-home2 {
+    bottom: 5vw;
+    left: 5vw;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+}
+.nav-bar-navfridge {
+    bottom: 0;
+    left: 20vw;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 1vw;
+    background-color: rgba(64, 64, 64, 1);
+}
+.nav-bar-fridge3 {
+    bottom: 4vw;
+    left: 4vw;
+    width: 12vw;
+    height: 12vw;
+    position: absolute;
+}
+.nav-bar-navrecipe {
+    bottom: 0;
+    left: 40vw;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 1vw;
+    background-color: rgba(64, 64, 64, 1);
+}
+.nav-bar-recipe2 {
+    bottom: 5vw;
+    left: 5vw;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+}
+.nav-bar-navaccount {
+    bottom: 0;
+    left: 60vw;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 1vw;
+    background-color: rgba(64, 64, 64, 1);
+}
+.nav-bar-account2 {
+    bottom: 5vw;
+    left: 5vw;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+}
+.nav-bar-navquit {
+    bottom: 0;
+    left: 80vw;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 1vw;
+    background-color: rgba(64, 64, 64, 1);
+}
+.nav-bar-leave2 {
+    bottom: 5vw;
+    left: 5vw;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+}

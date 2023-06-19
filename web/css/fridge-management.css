@@ -1,0 +1,345 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #222222;
+}
+.fridge-management-container {
+    position: absolute;
+    margin: auto;
+    display: inline-block;
+    /*overflow: hidden;*/
+    left: 0px;
+    top: 0px;
+    /*right: 0px;*/
+    /*bottom: 0px;*/
+    width: 100vw;
+    height: 100vh;
+    /*display: flex;*/
+    overflow: auto;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.fridge-management-fridge-management {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(34, 34, 34, 1);
+}
+.fridge-management-divfridgemanage {
+    top: 4vh;
+    left: 0px;
+    right: 0px;
+    width: 80vw;
+    height: 90vh;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+}
+.fridge-management-container1 {
+    top: 3vh;
+    left: 0px;
+    right: 0px;
+    width: 75vw;
+    height: 85vh;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+}
+.fridge-management-imgfridge {
+    top: 0px;
+    left: 0px;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+}
+@media (max-width: 500px) {
+    .fridge-management-imgfridge {
+        top: 0px;
+        left: 0px;
+        width: 28vw;
+        height: 28vw;
+        position: absolute;
+    }
+}
+.fridge-management-text {
+    top: 7vh;
+    left: 30vw;
+    color: rgba(255, 255, 255, 1);
+    width: 40vw;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-frame2 {
+    right: 30vw;
+    width: 20vw;
+    height: 30px;
+    bottom: 0px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+}
+.fridge-management-text02 {
+    top: 1vh;
+    color: rgba(255, 255, 255, 1);
+    width: 20vw;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-frame3 {
+    right: 0px;
+    width: 20vw;
+    bottom: 0px;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(94, 22, 0, 1);
+}
+.fridge-management-text04 {
+    top: 1vh;
+    color: rgba(255, 255, 255, 1);
+    width: 20vw;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-properties {
+    top: 25vh;
+    left: 0px;
+    width: 75vw;
+    height: 54vh;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    /*background-color: rgba(44, 44, 44, 1);*/
+}
+.fridge-management-text06 {
+    left: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 30vw;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: left;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text08 {
+    top: 12vh;
+    left: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: left;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text10 {
+    top: 24vh;
+    left: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: left;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text12 {
+    top: 36vh;
+    left: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: left;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text14 {
+    top: 0vh;
+    right: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: right;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text16 {
+    top: 12vh;
+    right: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: right;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text18 {
+    top: 24vh;
+    right: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: right;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-text20 {
+    top: 36vh;
+    right: 6vw;
+    color: rgba(255, 255, 255, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: right;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-btncopy {
+    top: 4vh;
+    left: 6vw;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+}
+.fridge-management-text22 {
+    top: 8px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-btnviewmore {
+    top: 28vh;
+    left: 6vw;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+}
+.fridge-management-text24 {
+    top: 8px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.fridge-management-divfridgemanage {
+    border-radius: 30px;
+}

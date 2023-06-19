@@ -1,0 +1,181 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #222222;
+}
+.register-container {
+    position: absolute;
+    margin: auto;
+    width: 100vw;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+.register-register {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(34, 34, 34, 1);
+}
+.register-divregister {
+    /*top: 21px;*/
+    /*left: 30px;*/
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(44, 44, 44, 1);
+}
+.register-container1 {
+    /*top: 52px;*/
+    /*left: 30px;*/
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+}
+.register-text {
+    top: 8vh;
+    left: 5vw;
+    color: rgba(255, 255, 255, 1);
+    width: 70vw;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.register-btnregister {
+    border: none;
+    top: 80vh;
+    left: 28vw;
+    width: 24vw;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+
+    /*color*/
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.register-text02 {
+    top: 8px;
+    /*left: 27vh;*/
+    color: rgba(255, 255, 255, 1);
+    width: 24vw;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+}
+.register-text04 {
+    outline: none;
+    /*border: none;*/
+    border-right: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    /*boder-bottom: 0px;*/
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(255, 255, 255, 1);
+    width: 50vw;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Bold;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+    left: 5vw;
+}
+.register-password {
+    top: 30vh;
+    left: 10vw;
+    width: 50vw;
+    height: 33.01055908203125px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.register-name {
+    top: 68vh;
+    left: 10vw;
+    width: 50vw;
+    height: 33.010498046875px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.register-email {
+    top: 20vh;
+    left: 10vw;
+    width: 50vw;
+    height: 33.01055908203125px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.register-password-confirm {
+    top: 50vh;
+    left: 10vw;
+    width: 50vw;
+    height: 33.3262939453125px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+}
+.register-divregister {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 80vw;
+    bottom: 0px;
+    height: 90vh;
+    margin: auto;
+    position: static;
+    border-radius: 30px;
+}
