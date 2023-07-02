@@ -3,6 +3,8 @@ package xyz.devmeko.JsF.DAO;
 import xyz.devmeko.JsF.Handlers.RandomStringGenerator;
 import xyz.devmeko.JsF.SQL.SQLHandler;
 
+import javax.servlet.annotation.WebServlet;
+
 public class FridgeDAO {
 
     public void addFridge(String name) throws Exception {

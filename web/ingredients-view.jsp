@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>SusF</title>
+    <title>JsF</title>
     <link href="css/ingredients-view.css" rel="stylesheet"/>
+    <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
+    <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
 <div>
@@ -20,7 +24,7 @@
                 <span class="ingredients-view-text"><span>재료<br><br>당근<br>양파<br>두부</span></span>
                 <span class="ingredients-view-text02"><span>소비기한<br><br>2023-06-25<br>2023-06-28<br>2023-07-01</span></span>
                 <span class="ingredients-view-text04"><span>선택<br><br>ㅁ<br>ㅁ<br>ㅁ</span></span>
-                <span class="ingredients-view-text06"><span>홍길동의 냉장고</span></span>
+                <span class="ingredients-view-text06"><span>문종건의 냉장고</span></span>
                 <div class="ingredients-view-frame2">
                     <span class="ingredients-view-text08"><span>돌아가기</span></span>
                 </div>

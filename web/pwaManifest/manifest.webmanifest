@@ -1,0 +1,33 @@
+{
+    "theme_color": "#222222",
+    "background_color": "#222222",
+    "display": "standalone",
+    "scope": "/JsF",
+    "start_url": "/JsF",
+    "name": "\uc9c0\uc2dd\ub0c9\uc7a5\uace0",
+    "short_name": "\uc9c0\uc2dd\ub0c9\uc7a5\uace0",
+    "description": "JsF",
+    "icons": [
+
+        {
+            "src": "./icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "./icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "./icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

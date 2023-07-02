@@ -7,6 +7,10 @@
     <title>Title</title>
     <link href="css/nav-bar.css" rel="stylesheet"/>
     <link href="css/recipe.css" rel="stylesheet"/>
+    <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
+    <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
 

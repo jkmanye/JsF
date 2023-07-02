@@ -26,7 +26,7 @@ html, body {
     flex-shrink: 0;
     background-color: rgba(34, 34, 34, 1);
 }
-.fridge-add-divregister-email-check {
+.fridge-add-div {
     top: 5vh;
     left: 10vw;
     width: 80vw;

@@ -127,4 +127,14 @@
         <servlet-name>recipe</servlet-name>
         <url-pattern>/recipe</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>installation</servlet-name>
+        <jsp-file>/installation.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>installation</servlet-name>
+        <url-pattern>/installation</url-pattern>
+    </servlet-mapping>
 </web-app>

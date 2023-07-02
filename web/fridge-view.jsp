@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Title</title>
+    <title>JsF</title>
     <link rel="stylesheet" href="css/core.css" />
     <link href="css/fridge-view.css" rel="stylesheet"/>
+    <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
+    <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
 <div>
@@ -21,7 +25,7 @@
                         alt="imgfridge15"
                         class="fridge-view-imgfridge"
                 />
-                <span class="fridge-view-text"><span>홍길동의 냉장고</span></span>
+                <span class="fridge-view-text"><span>문종건의 냉장고</span></span>
                 <div class="fridge-view-btnviewmore">
                     <span class="fridge-view-text2"><span>자세히 보기</span></span>
                 </div>
@@ -72,14 +76,18 @@
     </div>
 </div>
 <script type="text/javascript">
+    var fridgeCounter = 0;
+
     function addNewFridgeDiv() {
         const fridgeDiv = document.getElementById("fridge");
         const newFridgeDiv = fridgeDiv.cloneNode(true);
         newFridgeDiv.style.top = "38vh";
         fridgeDiv.parentNode.insertBefore(newFridgeDiv, fridgeDiv.nextSibling);
-        // fridgeDiv.after(newFridgeDiv);
-
     }
+
+    $.ajax({
+        url: "/"
+    })
 </script>
 </body>
 </html>

@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Title</title>
+    <title>JsF</title>
 <%--    <link rel="stylesheet" href="styles/login.css"/>--%>
     <link href="css/fridge-management.css" rel="stylesheet"/>
     <link href="css/ingredients-view.css" rel="stylesheet"/>
+    <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
+    <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
 <div class="fridge-management-container">
@@ -19,7 +23,7 @@
                         alt="imgfridge1803"
                         class="ingredients-view-imgfridge"
                 />
-                <span class="fridge-management-text"><span>홍길동의 냉장고</span></span>
+                <span class="fridge-management-text"><span>문종건의 냉장고</span></span>
                 <div class="fridge-management-frame2">
                     <span class="fridge-management-text02"><span>돌아가기</span></span>
                 </div>
@@ -39,7 +43,7 @@
                                   <span>DXYVZW34</span>
                                 </span>
                     <span class="fridge-management-text16">
-                                  <span>홍길동 님 외 3명</span>
+                                  <span>문종건 님 외 3명</span>
                                 </span>
                     <span class="fridge-management-text18">
                                   <span>당근 외 7개</span>

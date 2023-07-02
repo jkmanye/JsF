@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Title</title>
+    <title>JsF</title>
     <link rel="stylesheet" href="css/core.css"/>
     <link href="css/captcha-confirmation.css" rel="stylesheet"/>
+    <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
+    <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
 <div>
