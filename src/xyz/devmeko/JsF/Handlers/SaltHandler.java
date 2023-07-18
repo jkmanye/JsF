@@ -4,7 +4,7 @@ public class SaltHandler {
 
     //⓪①②③④⑤⑥⑦⑧⑨
 
-    public String toSalt(Integer number) {
+    public String toSalt(String number) {
         return number.toString().replace("0", "⓪")
                 .replace("1", "①")
                 .replace("2", "②")

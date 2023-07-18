@@ -7,8 +7,6 @@ public class HandlerTest {
 
     @Test
     public void saltHandlerTest() {
-        System.out.println(new SaltHandler().toSalt(1234546483));
+        System.out.println(new SaltHandler().toSalt("1234546483"));
     }
-
-
 }

@@ -34,21 +34,15 @@
         }
     </style>
 </head>
-<body>
-<%--<div class="center">--%>
-<%--    <h1> 404 Not Found </h1>--%>
-<%--    <h3>현재 접속하신 페이지를 찾을 수 없습니다.<br/>URL에 오타가 있는지 확인해주시고 없을 경우 관리자에게 연락주시면 빠른 시일 내에 조치하겠습니다.<br/>이용에 불편을 드려 죄송합니다.<br /><br /><br /> <a href="/">메인으로 돌아가기</a> </h3>--%>
-<%--    <h6>연락처: devmeko463@gmail.com</h6>--%>
-<%--</div>--%>
-
+<body style="background-color: #222222">
     <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="text-center">
-            <h1 class="display-1 fw-bold">404</h1>
-            <p class="fs-3"> <span class="text-danger">404</span> Page not found</p>
-            <p class="lead">
-                현재 접속하신 페이지를 찾을 수 없습니다.<br/>URL에 오타가 있는지 확인해주시고<br />없을 경우 관리자에게 연락주시면<br />빠른 시일 내에 조치하겠습니다.<br/><br/>이용에 불편을 드려 죄송합니다.<br /><br /><br />
+            <h1 class="display-1 fw-bold" style="color: #FFFFFF;">404</h1>
+            <p class="fs-3" style="color: #FFFFFF;"> <span class="text-danger">404</span> Page not found</p>
+            <p class="lead" style="color: #FFFFFF;">
+                현재 접속하신 페이지를 찾을 수 없습니다.<br/>URL에 오타가 있는지 확인해주세요.
             </p>
-            <a href="/" class="btn btn-primary">메인으로 돌아가기</a>
+            <a href="/JsF" class="btn btn-primary">메인으로 돌아가기</a>
         </div>
     </div>
 </body>

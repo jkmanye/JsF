@@ -12,41 +12,148 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <div>
     <div class="ingredients-view-container">
         <div class="ingredients-view-ingredients-view">
-            <div class="ingredients-view-divfridgemanage">
+            <div class="ingredients-view-divfridgemanage" id="mainDiv">
                 <img
                         src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1a08c9b0-7874-4c06-8f53-2871e3826731/3690f582-dc18-48d1-a09c-fd2d7ba89796?org_if_sml=11443"
                         alt="imgfridge1803"
                         class="ingredients-view-imgfridge"
                 />
-                <span class="ingredients-view-text"><span>재료<br><br>당근<br>양파<br>두부</span></span>
-                <span class="ingredients-view-text02"><span>소비기한<br><br>2023-06-25<br>2023-06-28<br>2023-07-01</span></span>
-                <span class="ingredients-view-text04"><span>선택<br><br>ㅁ<br>ㅁ<br>ㅁ</span></span>
-                <span class="ingredients-view-text06"><span>문종건의 냉장고</span></span>
-                <div class="ingredients-view-frame2">
-                    <span class="ingredients-view-text08"><span>돌아가기</span></span>
-                </div>
-                <div class="ingredients-view-frame3">
-                    <span class="ingredients-view-text10"><span>삭제하기</span></span>
-                </div>
-                <div class="ingredients-view-frame4">
-                  <span class="ingredients-view-text12">
-                    <span>재료 추가하기</span>
-                  </span>
-                </div>
+                <span class="ingredients-view-text" id="names">재료<br><br></span>
+                <span class="ingredients-view-text02" id="expire">소비기한<br><br></span>
+                <span class="ingredients-view-text04" id="select">선택</span>
+                <span class="ingredients-view-text06" id="fridgeName"></span>
+                <a href='javascript:returnOrRecipe();' class="ingredients-view-frame2">
+                    <span class="ingredients-view-text08" id="changing">돌아가기</span>
+                </a>
+                <a href='javascript:deleteIngredient();' class="ingredients-view-frame3">
+                    <span class="ingredients-view-text10">재료 삭제하기</span>
+                </a>
+                <a href='javascript:window.location.href = "/ingredientsAdd" + window.location.search;' class="ingredients-view-frame4">
+                  <span class="ingredients-view-text12">재료 추가하기</span>
+                </a>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    function addNewIngredientDiv() {
-        const ingredientDiv = document.getElementById("ingredientDiv");
-        const newIngredientDiv = ingredientDiv.cloneNode(true);
-        newIngredientDiv.style.top = "70vh";
-        ingredientDiv.parentNode.insertBefore(newIngredientDiv, ingredientDiv.nextSibling);
-        // fridgeDiv.after(newFridgeDiv);
+    let json;
+
+    window.onload = function () {
+        document.getElementById("fridgeName").innerText = new URL(window.location).searchParams.get("fridgeName");
+
+        $.ajax({
+            url: "/api/ingredients",
+            method: "POST",
+            dataType: "json",
+            processData: false,
+            data: JSON.stringify({
+                action: "get",
+                fridgeCode: new URL(window.location).searchParams.get("fridgeCode")
+            }),
+            success: function (tempJson) {
+                json = tempJson;
+
+                console.log(JSON.stringify(json));
+                let finalSelect = "";
+                let finalExpire = "";
+
+                let length = json.length;
+
+                for(var index in json) {
+                    let miniJson = json[index]
+                    console.log(miniJson);
+
+                    const yyyyMMdd = miniJson.expireDate;
+                    const sYear = yyyyMMdd.substring(0,4);
+                    const sMonth = yyyyMMdd.substring(5,7);
+                    const sDate = yyyyMMdd.substring(8,10);
+                    // document.getElementById("select").innerHTML += "☐<br>";
+
+                    finalSelect = miniJson.type + "<br>" + finalSelect;
+                    finalExpire = (Math.ceil((new Date(Number(sYear), Number(sMonth)-1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) + "일 남음<br>" + finalExpire;
+                }
+
+                document.getElementById("names").innerHTML += finalSelect;
+                document.getElementById("expire").innerHTML += finalExpire;
+
+                for (let i = 0; i < length; i++) {
+                    const checkBox = document.createElement("input");
+                    checkBox.type = "checkbox";
+                    checkBox.style.width = "20px";
+                    checkBox.style.height = "20px";
+                    checkBox.style.right = "7vw";
+                    checkBox.style.top = "calc(" + ((i - 2) * 23 + "px") + " + 40vh)";
+                    checkBox.id = "checkBox" + i;
+                    checkBox.style.position = "absolute";
+                    checkBox.setAttribute("onclick", "changeButtonText()");
+                    document.getElementById("mainDiv").appendChild(checkBox);
+                }
+            },
+            error: function () {
+                console.log("AJAX error!");
+            }
+        });
+
+        // for (const checkBox of document.getElementsByTagName("input")) {
+        //     if (Object.is(checkBox.type, "checkbox")) {
+        //
+        //     }
+        // }
+
+        // while (true) changeButtonText();
+    };
+
+    function checks() {
+        let result = [];
+        for (let i = 0; i < json.length; i++) {
+            if (document.getElementById("checkBox" + i).checked) result.push(i)
+        }
+        return result;
+    }
+
+    function recipe() {
+        let queryString = "";
+        for (let i in checks()) {
+            queryString += (json[i].type + " ");
+        }
+        window.location.href = "/recipe?queryString=" + queryString;
+    }
+
+    function returnOrRecipe() {
+        if (Object.is(0, checks().length)) window.location.href = "/fridgeManagement" + window.location.search;
+        else recipe();
+    }
+
+    function changeButtonText() {
+        if (Object.is(0, checks().length)) document.getElementById("changing").innerText = "돌아가기"
+        else document.getElementById("changing").innerText = "레시피 찾기";
+    }
+
+    function deleteIngredient() {
+        for (let i in checks()) {
+            let miniJson = json[i];
+            $.ajax({
+                url: "/api/ingredients",
+                dataType: "json",
+                processData: false,
+                method: "POST",
+                data: JSON.stringify({
+                    action: "delete",
+                    fridgeCode: new URL(window.location).searchParams.get("fridgeCode"),
+                    type: miniJson.type
+                }),
+                success: function (json) {
+                    window.location.reload();
+                },
+                error: function () {
+                    console.log("AJAX error!");
+                }
+            })
+        }
     }
 </script>
 </body>

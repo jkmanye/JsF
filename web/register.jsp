@@ -17,17 +17,18 @@
     <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
 </head>
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <div>
     <div class="register-container">
         <div class="register-register">
             <div class="register-divregister">
                 <div class="register-container1">
                     <span class="register-text"><span>회원가입</span></span>
-                    <button id="submit" class="register-btnregister">
+                    <button id="submit" class="register-btnregister" onclick="register()">
                         회원가입 완료
                     </button>
                     <div class="register-email">
-                        <input class="register-text04" id="email" readonly type="text" placeholder="hychew463@gmail.com">
+                        <input class="register-text04" id="email" readonly type="text" value=<%= session.getAttribute(request.getParameter("sessionID")) %> style="color: #FFFFFF;">
                     </div>
                     <div class="register-password">
                         <input class="register-text04" id="password" type="password" placeholder="비밀번호">
@@ -60,12 +61,13 @@
     let regexUpper = new RegExp('(?=.*[A-Z])');
     let regexDigits = new RegExp('(?=.*[0-9])');
     let regexLength = new RegExp('(?=.{6,})');
-    pwQ = false;
+    let pwQ = false;
+    let ableToProceed = false;
 
     window.onload = function () {
         document.getElementById("password").oninput = function () {
             var score = 0;
-            document.getElementById("submit").disabled = true;
+            document.getElementById("submit").setAttribute("disabled", "disabled");
 
             var curPassword = document.getElementById("password").value;
 
@@ -113,19 +115,52 @@
                 document.getElementById("pgBar").style.width = "0%";
                 document.getElementById("pwStrength").innerText = "비밀번호를 입력해주세요!";
                 pwQ = false;
-                document.getElementById("submit").disabled = true;
+                document.getElementById("submit").setAttribute("disabled", "disabled");
             }
         };
 
         document.getElementById("password_check").oninput = function () {
-            if (!Object.is(document.getElementById("password_check").value, null)) {
+            if (!Object.is(document.getElementById("password_check").value, '')) {
                 if (Object.is(document.getElementById("password_check").value, document.getElementById("password").value)) {
                     document.getElementById("pwCheck").innerText = "입력한 비밀번호가 일치합니다!";
-                    if (pwQ) document.getElementById("submit").disabled = false;
                 } else document.getElementById("pwCheck").innerText = "입력한 비밀번호가 일치하지 않습니다!";
             } else document.getElementById("pwCheck").innerText = "비밀번호를 한 번 더 입력해주세요!";
         }
+
+        document.getElementById("name").oninput = function () {
+            if (Object.is(document.getElementById("name"), '')) document.getElementById("submit").setAttribute("disabled", "disabled");
+            else document.getElementById("submit").removeAttribute('disabled');
+        }
     };
+
+    function check() {
+        if (pwQ) {
+            if (!Object.is(document.getElementById("name").value, '')) {
+                if (!Object.is(document.getElementById("password_check").value, '')) {
+
+                }
+            }
+        }
+    }
+
+    function register() {
+        $.ajax({
+            url: "/api/user",
+            dataType: "json",
+            data: JSON.stringify({email: document.getElementById("email").value, password: document.getElementById("password").value, name: document.getElementById("name").value, action: "register"}),
+            method: "POST",
+            processData: false,
+            success: function (json) {
+                document.cookie = "email=" + document.getElementById("email").value + ";password=" +
+
+                window.sessionStorage.setItem("accountEmail", json.email);
+                window.location.href = "/mainMenu"
+            },
+            error: function () {
+
+            }
+        });
+    }
 </script>
 </body>
 </html>

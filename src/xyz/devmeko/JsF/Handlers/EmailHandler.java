@@ -39,8 +39,6 @@ public class EmailHandler {
             }
         });
 
-
-
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));

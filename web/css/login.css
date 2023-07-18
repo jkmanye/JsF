@@ -38,19 +38,19 @@ html, body {
     background-color: rgba(44, 44, 44, 1);
 }
 .login-container1 {
-    top: 55.859375px;
-    left: 30px;
-    width: 240px;
-    height: 489.140625px;
+    top: 10vh;
+    left: 20vw;
+    width: 60vw;
+    height: 80vh;
     display: flex;
     position: absolute;
     align-items: flex-start;
 }
 .login-text {
     top: 8vh;
-    left: 12vw;
+    left: -5vw;
     color: rgba(255, 255, 255, 1);
-    width: 211px;
+    width: 50vw;
     height: auto;
     position: absolute;
     font-size: 20px;
@@ -63,10 +63,10 @@ html, body {
     text-decoration: none;
 }
 .login-btnlogintoregister {
-    top: 514px;
-    left: 50px;
-    width: 200px;
-    height: 31px;
+    top: 70vh;
+    left: -5vw;
+    width: 50vw;
+    height: 30px;
     display: flex;
     overflow: hidden;
     position: absolute;
@@ -91,9 +91,9 @@ html, body {
     text-decoration: none;
 }
 .login-btnlogin {
-    top: 400px;
-    left: 145px;
-    width: 70px;
+    top: 60vh;
+    left: 12vw;
+    width: 15vw;
     height: 30px;
     display: flex;
     overflow: hidden;

@@ -64,9 +64,9 @@ html, body {
 }
 .ingredients-view-text02 {
     top: 30vh;
-    left: 27vw;
+    left: 15vw;
     color: rgba(255, 255, 255, 1);
-    width: 94px;
+    width: 50vw;
     height: auto;
     position: absolute;
     font-size: 20px;

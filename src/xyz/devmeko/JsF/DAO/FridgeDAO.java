@@ -7,10 +7,12 @@ import javax.servlet.annotation.WebServlet;
 
 public class FridgeDAO {
 
-    public void addFridge(String name) throws Exception {
-        String command = "INSERT INTO fridge(code, name, lastUsed) VALUES ('" + new RandomStringGenerator().generate(6) + "', '" + name + "', CURRENT_DATE);";
+    public String addFridge(String name) throws Exception {
+        String code = new RandomStringGenerator().generate(6);
+        String command = "INSERT INTO fridge(code, name, lastUsed) VALUES ('" + code + "', '" + name + "', CURRENT_DATE);";
         SQLHandler sqlHandler = new SQLHandler();
         sqlHandler.perform(command);
+        return code;
     }
 
     public void updateUseDate(String fridgeCode) throws Exception {

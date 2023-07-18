@@ -17,25 +17,6 @@ import java.io.PrintWriter;
 public class IngredientsServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            resp.setCharacterEncoding("UTF-8");
-            resp.setContentType("application/json");
-
-            JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String result = new IngredientDAO().getIngredients(jsonObject.getString("fridgeCode"));
-
-            PrintWriter out = resp.getWriter();
-            out.print(result);
-            out.flush();
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             req.setCharacterEncoding("UTF-8");
@@ -43,27 +24,34 @@ public class IngredientsServlet extends HttpServlet {
             resp.setContentType("application/json");
 
             JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String fridgeCode = jsonObject.getString("fridgeCode");
-            String type = jsonObject.getString("type");
-            Integer date = jsonObject.getInt("date");
-            new IngredientDAO().addIngredient(fridgeCode, date, type);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+            String action = jsonObject.getString("action");
+            if (action.equalsIgnoreCase("get")) {
+                String result = new IngredientDAO().getIngredients(jsonObject.getString("fridgeCode"));
 
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            resp.setCharacterEncoding("UTF-8");
-            resp.setContentType("application/json");
+                PrintWriter out = resp.getWriter();
+                out.print(result);
+                out.flush();
+                out.close();
+            } else if (action.equalsIgnoreCase("add")) {
+                String fridgeCode = jsonObject.getString("fridgeCode");
+                String type = jsonObject.getString("type");
+                String date = jsonObject.getString("date");
+                System.out.println(date);
+                new IngredientDAO().addIngredient(fridgeCode, date, type);
+                PrintWriter out = resp.getWriter();
+                out.print("{\"result\": 0}");
+                out.flush();
+                out.close();
+            } else if (action.equalsIgnoreCase("delete")) {
+                String fridgeCode = jsonObject.getString("fridgeCode");
+                String type = jsonObject.getString("type");
 
-            JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String fridgeCode = jsonObject.getString("fridgeCode");
-            String type = jsonObject.getString("type");
-
-            new IngredientDAO().deleteIngredient(type, fridgeCode);
+                new IngredientDAO().deleteIngredient(type, fridgeCode);
+                PrintWriter out = resp.getWriter();
+                out.print("{\"result\": 0}");
+                out.flush();
+                out.close();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

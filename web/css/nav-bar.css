@@ -9,12 +9,12 @@ html, body {
     background-color: #222222;
 }
 .nav-bar-container {
-    position: absolute;
+    position: static;
     width: 100vw;
     bottom: 0;
     display: flex;
     overflow: auto;
-    min-height: 100vh;
+    height: 20vw;
     align-items: center;
     flex-direction: column;
 }
@@ -24,7 +24,7 @@ html, body {
     height: 20vw;
     display: flex;
     overflow: hidden;
-    position: absolute;
+    position: static;
     align-items: flex-start;
     flex-shrink: 0;
     background-color: rgba(29, 29, 29, 1);

@@ -84,11 +84,15 @@ html, body {
     position: absolute;
     width: 100vw;
     bottom: 0;
-    display: flex;
-    overflow: auto;
-    min-height: 100vh;
+    /*display: flex;*/
+    /*overflow: auto;*/
+    min-height: 20vw;
     align-items: center;
     flex-direction: column;
+    /*position: fixed;*/
+    /*position: static;*/
+    z-index: 3;
+    overflow-y: scroll;
 }
 .nav-bar-nav-bar {
     bottom: 0;
@@ -97,7 +101,7 @@ html, body {
     height: 20vw;
     display: flex;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     align-items: flex-start;
     flex-shrink: 0;
     background-color: rgba(29, 29, 29, 1);

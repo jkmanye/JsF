@@ -17,67 +17,41 @@ import java.io.PrintWriter;
 public class FridgeServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            resp.setCharacterEncoding("UTF-8");
-            resp.setContentType("application/json");
-
-            JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String result = new FridgeDAO().getFridge(jsonObject.getString("fridgeCode"));
-
-            PrintWriter out = resp.getWriter();
-            out.print(result);
-            out.flush();
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
             req.setCharacterEncoding("UTF-8");
             resp.setCharacterEncoding("UTF-8");
             resp.setContentType("application/json");
 
-            JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String fridgeName = jsonObject.getString("fridgeName");
-
-            new FridgeDAO().addFridge(fridgeName);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            resp.setCharacterEncoding("UTF-8");
-            resp.setContentType("application/json");
-
-            JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String fridgeCode = jsonObject.getString("fridgeCode");
-
-            new FridgeDAO().updateUseDate(fridgeCode);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            resp.setCharacterEncoding("UTF-8");
-            resp.setContentType("application/json");
-
-            JSONObject jsonObject = new JSONObject(ServletBodyHandler.getBody(req));
-            String fridgeCode = jsonObject.getString("fridgeCode");
-
-            new FridgeDAO().deleteFridge(fridgeCode);
+            String body = ServletBodyHandler.getBody(req);
+            System.out.println("Body: " + body);
+            JSONObject jsonObject = new JSONObject(body);
+            if (jsonObject.getString("action").equalsIgnoreCase("get")) {
+                String result = new FridgeDAO().getFridge(jsonObject.getString("fridgeCode"));
+                PrintWriter out = resp.getWriter();
+                out.print(result);
+                out.flush();
+                out.close();
+            } else if (jsonObject.getString("action").equalsIgnoreCase("add")) {
+                PrintWriter out = resp.getWriter();
+                out.print("{\"fridgeCode\": \"" + new FridgeDAO().addFridge(jsonObject.getString("fridgeName")) + "\"}");
+                out.flush();
+                out.close();
+            } else if (jsonObject.getString("action").equalsIgnoreCase("update")) {
+                String fridgeCode = jsonObject.getString("fridgeCode");
+                new FridgeDAO().updateUseDate(fridgeCode);
+                PrintWriter out = resp.getWriter();
+                out.print("{\"result\": 0}");
+                out.flush();
+                out.close();
+            } else if (jsonObject.getString("action").equalsIgnoreCase("delete")) {
+                String fridgeCode = jsonObject.getString("fridgeCode");
+                new FridgeDAO().deleteFridge(fridgeCode);
+                PrintWriter out = resp.getWriter();
+                out.print("{\"result\": 0}");
+                out.flush();
+                out.close();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

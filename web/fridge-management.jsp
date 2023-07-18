@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>JsF</title>
-<%--    <link rel="stylesheet" href="styles/login.css"/>--%>
+    <%--    <link rel="stylesheet" href="styles/login.css"/>--%>
     <link href="css/fridge-management.css" rel="stylesheet"/>
+    <link href="css/fridge-view.css" rel="stylesheet"/>
     <link href="css/ingredients-view.css" rel="stylesheet"/>
     <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
     <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
@@ -14,6 +15,7 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <div class="fridge-management-container">
     <div class="fridge-management-fridge-management">
         <div class="fridge-management-divfridgemanage">
@@ -23,42 +25,22 @@
                         alt="imgfridge1803"
                         class="ingredients-view-imgfridge"
                 />
-                <span class="fridge-management-text"><span>문종건의 냉장고</span></span>
-                <div class="fridge-management-frame2">
-                    <span class="fridge-management-text02"><span>돌아가기</span></span>
-                </div>
-                <div class="fridge-management-frame3">
-                    <span class="fridge-management-text04"><span>삭제하기</span></span>
-                </div>
+                <span class="fridge-management-text" id="fridgeName"><span>문종건의 냉장고</span></span>
+                <a class="fridge-management-btnviewmore" style="color: #FFFFFF; right: 30vw; top: 80vh;" href='javascript:window.location.href = "/fridgeView";'>돌아가기</a>
+                <a class="fridge-view-btndelete" style="color: #FFFFFF; right: 0px; top: 80vh;" href="javascript:deleteFridge();">삭제하기</a>
                 <div class="fridge-management-properties">
-                                <span class="fridge-management-text06">
-                                  <span>냉장고 코드</span>
-                                </span>
-                    <span class="fridge-management-text08">
-                                  <span>공유된 사용자</span>
-                                </span>
-                    <span class="fridge-management-text10"><span>재료 목록</span></span>
-                    <span class="fridge-management-text12"><span>최근 사용 날짜</span></span>
-                    <span class="fridge-management-text14">
-                                  <span>DXYVZW34</span>
-                                </span>
-                    <span class="fridge-management-text16">
-                                  <span>문종건 님 외 3명</span>
-                                </span>
-                    <span class="fridge-management-text18">
-                                  <span>당근 외 7개</span>
-                                </span>
-                    <span class="fridge-management-text20">
-                                  <span>2023/05/27</span>
-                                </span>
-                    <div class="fridge-management-btncopy">
-                                  <span class="fridge-management-text22">
-                                    <span>복사하기</span>
-                                  </span>
-                    </div>
-                    <div class="fridge-management-btnviewmore">
-                        <span class="fridge-management-text24"><span>더보기</span></span>
-                    </div>
+                    <span class="fridge-management-text06">냉장고 코드</span>
+                    <span class="fridge-management-text08">공유된 사용자</span>
+                    <span class="fridge-management-text10">재료 목록</span>
+                    <span class="fridge-management-text12">최근 사용 날짜</span>
+                    <span class="fridge-management-text14" id="code"></span>
+                    <span class="fridge-management-text16" id="user"></span>
+                    <span class="fridge-management-text18" id="ingredients">없음</span>
+                    <span class="fridge-management-text20" id="lastDate"></span>
+<%--                    <a class="fridge-management-btncopy fridge-management-text24">복사하기</a>--%>
+<%--                    <a class="fridge-management-btnviewmore fridge-management-text24">더보기</a>--%>
+                    <a class="fridge-management-btnviewmore" style="color: #FFFFFF; top: 4vh; left: 6vw;" href="javascript:copy();">복사하기</a>
+                    <a class="fridge-management-btnviewmore" style="color: #FFFFFF; top: 28vh; left: 6vw;" href="javascript:ingredientsView();">더보기</a>
                 </div>
             </div>
         </div>
@@ -66,7 +48,96 @@
 </div>
 
 <script type="text/javascript">
+    let fridgeCode;
 
+    function copy() {
+        window.navigator.clipboard.writeText(fridgeCode).then(() => {
+            alert("복사되었습니다.");
+        });
+    }
+
+    function ingredientsView() {
+        window.location.href = "/ingredientsView?fridgeCode=" + fridgeCode + "&fridgeName=" + document.getElementById("fridgeName").innerText;
+    }
+
+    window.onload = function () {
+        fridgeCode = new URL(window.location).searchParams.get("fridgeCode");
+        // const code = document.getElementById("code").innerText = window.location.parameters.get("fridgeCode");
+        $.ajax({
+            url: "/api/fridge",
+            dataType: "json",
+            processData: false,
+            method: "POST",
+            data: JSON.stringify({
+                action: "get",
+                fridgeCode: fridgeCode
+            }),
+            success: function (json) {
+                console.log(JSON.stringify(json));
+                document.getElementById("code").innerText = json.code;
+                document.getElementById("lastDate").innerText = json.lastUsed.replaceAll('-', '/');
+                document.getElementById("fridgeName").innerText = json.name;
+            },
+            error: function () {
+                console.log("AJAX error!");
+            }
+        });
+
+        $.ajax({
+            url: "/api/ingredients",
+            method: "POST",
+            dataType: "json",
+            processData: false,
+            data: JSON.stringify({
+                action: "get",
+                fridgeCode: new URL(window.location).searchParams.get("fridgeCode")
+            }),
+            success: function (json) {
+                document.getElementById("ingredients").innerText = json[0].type + " 외 " + (json.length - 1) + "개";
+            },
+            error: function () {
+                console.log("AJAX error!");
+            }
+        });
+    };
+
+    function deleteFridge() {
+        if (confirm("이 냉장고를 정말 삭제하시겠습니까?")) {
+            $.ajax({
+                url: "/api/user",
+                dataType: "json",
+                processData: false,
+                method: "POST",
+                data: JSON.stringify({
+                    action: "removeFridge",
+                    email: window.sessionStorage.accountEmail,
+                    fridgeCode: fridgeCode
+                }),
+                success: function (json) {
+                    $.ajax({ 
+                        url: "/api/fridge",
+                        dataType: "json",
+                        processData: false,
+                        method: "POST",
+                        data: JSON.stringify({
+                            action: "delete",
+                            fridgeCode: fridgeCode
+                        }),
+                        success: function (json) {
+                            console.log(JSON.stringify(json));
+                            window.location.href = "/fridgeView";
+                        },
+                        error: function () {
+                            console.log("AJAX error!");
+                        }
+                    });
+                },
+                error: function () {
+                    console.log("AJAX error!");
+                }
+            });
+        }
+    }
 </script>
 </body>
 </html>

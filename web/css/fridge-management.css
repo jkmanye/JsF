@@ -118,6 +118,31 @@ html, body {
     font-stretch: normal;
     text-decoration: none;
 }
+.fridge-management-btnviewmore {
+    text-align: center;
+    top: 18vh;
+    left: 25vw;
+    width: 20vw;
+    height: 30px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background-color: rgba(0, 74, 128, 1);
+
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    text-decoration: none;
+}
 .fridge-management-frame3 {
     right: 0px;
     width: 20vw;

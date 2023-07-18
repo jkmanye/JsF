@@ -7,24 +7,27 @@ html, body {
     align-items: center;
     padding: 0;
     background-color: #222222;
+    overflow-y: scroll;
 }
 .fridge-view-container {
     width: 100vw;
     display: flex;
     overflow: auto;
-    height: 100vh;
+    height: 135vh;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
 }
 .fridge-view-fridge-view {
     width: 100vw;
-    height: 100vh;
+    height: 135vh;
     display: flex;
     overflow: hidden;
     position: relative;
     align-items: flex-start;
     flex-shrink: 0;
     background-color: rgba(34, 34, 34, 1);
+    overflow-y: scroll;
 }
 .fridge-view-divfridge {
     top: 5vh;
@@ -72,9 +75,9 @@ html, body {
 }
 .fridge-view-btnviewmore {
     text-align: center;
-    top: 15vh;
+    top: 18vh;
     left: 25vw;
-    width: 20vw;
+    width: 45vw;
     height: 30px;
     display: flex;
     overflow: hidden;
@@ -112,7 +115,7 @@ html, body {
 }
 .fridge-view-btndelete {
     text-align: center;
-    top: 15vh;
+    top: 18vh;
     left: 50vw;
     width: 20vw;
     height: 30px;
@@ -198,7 +201,7 @@ html, body {
     height: 72px;
     display: flex;
     overflow: hidden;
-    position: absolute;
+    position: static;
     align-items: flex-start;
     flex-shrink: 0;
     background-color: rgba(29, 29, 29, 1);

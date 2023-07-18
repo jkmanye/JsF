@@ -17,37 +17,37 @@
             text-align: center;
             font-size: xxx-large;
             margin-top: 72px;
+            color: #FFFFFF;
         }
 
         h3 {
             text-align: center;
             margin-top: 72px;
+            color: #FFFFFF;
         }
 
         h6 {
             margin-top: 324px;
             text-align: center;
+            color: #FFFFFF;
         }
 
         center {
             text-align: center;
+            color: #FFFFFF;
         }
     </style>
 </head>
-<body>
+<body style="background-color: #222222">
 <div class="center">
-<%--    <h1> 500 Internal Server Error </h1>--%>
-<%--    <h3>서버 측 오류가 발생하였습니다.<br/>관리자에게 연락주시면 빠른 시일 내에 조치하겠습니다.<br/>이용에 불편을 드려 죄송합니다.<br /><br /><br /> <a href="/">메인으로 돌아가기</a> </h3>--%>
-<%--    <h6>연락처: devmeko463@gmail.com</h6>--%>
-
     <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="text-center">
-            <h1 class="display-1 fw-bold">500</h1>
-            <p class="fs-3"> <span class="text-danger">500</span> Internal Server Error</p>
-            <p class="lead">
-                서버 측 오류가 발생하였습니다.<br/>관리자에게 연락주시면<br />빠른 시일 내에 조치하겠습니다.<br/><br/>이용에 불편을 드려 죄송합니다.<br /><br /><br />
+            <h1 class="display-1 fw-bold" style="color: #FFFFFF">500</h1>
+            <p class="fs-3" style="color: #FFFFFF"> <span class="text-danger">500</span> Internal Server Error</p>
+            <p class="lead" style="color: #FFFFFF">
+                서버 측 오류가 발생하였습니다.<br/>잠시 후 다시 시도해주세요.
             </p>
-            <a href="/" class="btn btn-primary">메인으로 돌아가기</a>
+            <a href="/JsF" class="btn btn-primary">메인으로 돌아가기</a>
         </div>
     </div>
 </div>

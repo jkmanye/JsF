@@ -18,7 +18,7 @@ public class SQLHandler {
     }
 
     public void perform(String statementString) throws Exception {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/JsF", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
+        connection = DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6633558", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
         Statement statement = connection.createStatement();
         statement.executeUpdate(statementString);
 
@@ -27,7 +27,7 @@ public class SQLHandler {
     }
 
     public String queryObj(String statementString) throws Exception {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/JsF", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
+        connection = DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6633558", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
         String jsonString = "[]";
 
         Statement statement = connection.createStatement();
@@ -68,7 +68,7 @@ public class SQLHandler {
     }
 
     public String queryArray(String statementString) throws Exception {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/JsF", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
+        connection = DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6633558", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
         String jsonString = "[]";
 
         Statement statement = connection.createStatement();

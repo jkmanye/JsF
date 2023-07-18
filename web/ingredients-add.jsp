@@ -13,12 +13,13 @@
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <div>
     <div class="ingredients-add-container">
         <div class="ingredients-add-divlogin">
             <span class="ingredients-add-text12"><span>재료 추가하기</span></span>
             <div class="input_div" style="width: 70vw; left: 0;">
-                <input type="text" class="text_input" style="width: 70vw; top: -17vh; text-align: center" list="presets" placeholder="이름 (선택 혹은 직접 입력)">
+                <input type="text" id="type" class="text_input" style="width: 70vw; top: -17vh; text-align: center" list="presets" placeholder="이름 (선택 혹은 직접 입력)">
                 <datalist id="presets">
                     <option value="애호박"></option>
                     <option value="두부"></option>
@@ -28,12 +29,34 @@
                     <option value="토마토"></option>
                     <option value="계란"></option>
                 </datalist>
-                <input type="date" class="text_input" style="width: 70vw; top: 0; text-align: center" data-placeholder="소비기한">
+                <input type="date" class="text_input" id="date" style="width: 70vw; top: 0; text-align: center" data-placeholder="소비기한">
             </div>
-            <button class="button_confirm" style="top: 40vh">추가</button>
+            <a href='javascript:addIngredient();' class="button_confirm" style="top: 40vh">추가</a>
         </div>
-        <button class="button_confirm" style="top: 75vh; left: 38vw;">돌아가기</button>
+        <a href='javascript:window.location.href = "/ingredientsView";' class="button_confirm" style="top: 75vh; left: 38vw;">돌아가기</a>
     </div>
 </div>
+<script type="text/javascript">
+    function addIngredient() {
+        $.ajax({
+            url: "/api/ingredients",
+            dataType: "json",
+            processData: false,
+            method: "POST",
+            data: JSON.stringify({
+                action: "add",
+                fridgeCode: new URL(window.location).searchParams.get("fridgeCode"),
+                type: document.getElementById("type").value,
+                date: document.getElementById("date").value
+            }),
+            success: function (json) {
+                window.location.href = "/ingredientsView" + window.location.search;
+            },
+            error: function () {
+                console.log("AJAX error!");
+            }
+        });
+    }
+</script>
 </body>
 </html>

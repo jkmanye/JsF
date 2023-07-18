@@ -29,11 +29,11 @@
     <script type="text/javascript">
         window.onload = function () {
             if (window.matchMedia('(display-mode: standalone)').matches) {
-                window.location.href = "http://" + window.location.host + "/JsF/login";
-            } else window.location.href = "http://" + window.location.host + "/JsF/installation";
+                window.location.href = "http://" + window.location.host + "/login";
+            } else window.location.href = "http://" + window.location.host + "/installation";
 
             if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.register("./offlineHandler/service-worker.js");
+                navigator.serviceWorker.register("./service-worker.js");
             }
         };
     </script>

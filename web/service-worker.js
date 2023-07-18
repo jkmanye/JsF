@@ -1,6 +1,6 @@
 const OFFLINE_VERSION = 1;
 const CACHE_NAME = "jsf_offline";
-const OFFLINE_URL = "./offline.html";
+const OFFLINE_URL = "offline.html";
 
 self.addEventListener("install", (event) => {
     event.waitUntil(

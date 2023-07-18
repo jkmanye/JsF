@@ -7,15 +7,18 @@ public class IngredientDAO {
     public String getIngredients(String fridgeCode) throws Exception {
         String jsonString = "[]";
 
-        String command = "SELECT type, addedDate, expireDate FROM ingredient WHERE fridge=\"" + fridgeCode + "\";";
+        String command = "SELECT type, expireDate FROM ingredient WHERE fridge=\"" + fridgeCode + "\";";
         SQLHandler sqlHandler = new SQLHandler();
         jsonString = sqlHandler.queryArray(command);
 
         return jsonString;
     }
 
-    public void addIngredient(String fridgeCode, Integer date, String type) throws Exception {
-        String command = "INSERT INTO ingredient(fridge, type, addedDate, expireDate) VALUES ('" + fridgeCode + "', '" + type + "',  CURRENT_DATE, DATE_ADD(CURRENT_DATE, INTERVAL " + date + " day));";
+    public void addIngredient(String fridgeCode, String inputDate, String type) throws Exception {
+//        System.out.println(date);
+//        date = "2023-07-29";
+        String command = "INSERT INTO ingredient(fridge, type, expireDate) VALUES ('" + fridgeCode + "', '" + type + "', STR_TO_DATE('" + inputDate + "', '%Y-%m-%d'));";
+        System.out.println(command);
 
         SQLHandler sqlHandler = new SQLHandler();
         sqlHandler.perform(command);
