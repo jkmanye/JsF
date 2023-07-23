@@ -20,7 +20,7 @@
 </head>
 <body style="background-color: #222222;">
 
-<button id="installBtn" class="button_confirm" style="left: 42vw; top: calc(50vh - 15px); width: 50vw;">지식냉장고 앱 설치하기</button>
+<button id="installBtn" class="button_confirm" style="left: 25vw; top: calc(50vh - 15px); width: 50vw;">지식냉장고 앱 설치하기</button>
 
 <script type="text/javascript">
     let deferredPrompt;
