@@ -17,6 +17,7 @@
 </head>
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" src="scripts/core.js"></script>
 <div>
     <div class="login-container">
         <div class="login-login">
@@ -42,8 +43,42 @@
 </div>
 
 <script type="text/javascript">
-    function login() {
+    window.onload = function () {
+        if (! Object.is(getCookie("logout"), "true")) {
+            console.log("Auto Login!");
+            document.getElementById("email").value = getCookie("email");
+            document.getElementById("password").value = getCookie("password");
+            login();
+        }
+    }
 
+    function login() {
+        $.ajax({
+            url: "/api/user",
+            method: "POST",
+            dataType: "json",
+            processData: false,
+            data: JSON.stringify({
+                action: "login",
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            }),
+            success: function (json) {
+                window.sessionStorage.setItem("accountEmail", json.email);
+                window.sessionStorage.setItem("accountName", json.name);
+
+                deleteCookie("logout");
+                setCookie("logout", "false");
+                setCookie("email", document.getElementById("email").value , 720);
+                setCookie("password", document.getElementById("password").value , 720);
+                if (Object.is(new URL(window.location).searchParams.get("redirect"), null)) {
+                    window.location.href = "/mainMenu";
+                } else window.location.href = ("/" + new URL(window.location).searchParams.get("redirect"));
+            },
+            error: function () {
+                console.log("AJAX error!");
+            }
+        })
     }
 </script>
 </body>

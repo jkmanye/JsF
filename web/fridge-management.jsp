@@ -99,6 +99,23 @@
                 console.log("AJAX error!");
             }
         });
+
+        $.ajax({
+            url: "/api/fridge",
+            method: "POST",
+            dataType: "json",
+            processData: false,
+            data: JSON.stringify({
+                action: "count",
+                fridgeCode: new URL(window.location).searchParams.get("fridgeCode")
+            }),
+            success: function (json) {
+                document.getElementById("user").innerText = (json.length ) + "명";
+            },
+            error: function () {
+                console.log("AJAX error!");
+            }
+        });
     };
 
     function deleteFridge() {

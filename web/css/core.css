@@ -84,13 +84,9 @@ html, body {
     position: absolute;
     width: 100vw;
     bottom: 0;
-    /*display: flex;*/
-    /*overflow: auto;*/
     min-height: 20vw;
     align-items: center;
     flex-direction: column;
-    /*position: fixed;*/
-    /*position: static;*/
     z-index: 3;
     overflow-y: scroll;
 }

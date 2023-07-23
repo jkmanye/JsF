@@ -1,9 +1,11 @@
 package xyz.devmeko.JsF.Servlets;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import xyz.devmeko.JsF.DAO.FridgeDAO;
 import xyz.devmeko.JsF.DAO.IngredientDAO;
 import xyz.devmeko.JsF.Handlers.ServletBodyHandler;
+import xyz.devmeko.JsF.SQL.SQLHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,6 +51,16 @@ public class FridgeServlet extends HttpServlet {
                 new FridgeDAO().deleteFridge(fridgeCode);
                 PrintWriter out = resp.getWriter();
                 out.print("{\"result\": 0}");
+                out.flush();
+                out.close();
+            } else if (jsonObject.getString("action").equalsIgnoreCase("count")) {
+                String fridgeCode = jsonObject.getString("fridgeCode");
+                String command = "SELECT email FROM user WHERE fridges LIKE \"%" + fridgeCode + "%\";";
+                String array = new SQLHandler().queryArray(command);
+                System.out.println(array);
+                JSONArray userJSON = new JSONArray(array);
+                PrintWriter out = resp.getWriter();
+                out.print("{\"length\": " + userJSON.length() + "}");
                 out.flush();
                 out.close();
             }

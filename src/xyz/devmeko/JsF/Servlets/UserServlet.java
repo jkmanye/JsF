@@ -26,7 +26,7 @@ public class UserServlet extends HttpServlet {
             if (action.equalsIgnoreCase("register")) {
                 new AccountDAO().addAccount(jsonObject.getString("email"), jsonObject.getString("password"), jsonObject.getString("name"));
                 PrintWriter out = resp.getWriter();
-                out.print("{\"email\": \"" + jsonObject.getString("email") + "\"}");
+                out.print("{\"email\": \"" + jsonObject.getString("email") + "\", \"name\": \"" + jsonObject.getString("name") + "\"}");
                 out.flush();
                 out.close();
             } else if (action.equalsIgnoreCase("login")) {

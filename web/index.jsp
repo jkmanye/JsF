@@ -26,9 +26,13 @@
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
 
+    <script src="scripts/core.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         window.onload = function () {
-            if (window.matchMedia('(display-mode: standalone)').matches) {
+            setCookie("logout", true, 2147483647);
+
+            if (window.matchMedia('(display-mode: fullscreen)').matches) {
                 window.location.href = "http://" + window.location.host + "/login";
             } else window.location.href = "http://" + window.location.host + "/installation";
 

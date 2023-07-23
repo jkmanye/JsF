@@ -14,6 +14,7 @@
 </head>
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" src="scripts/core.js"></script>
 <div>
     <div class="fridge-view-container">
         <div class="fridge-view-fridge-view" id="mainView">
@@ -43,14 +44,14 @@
                                 class="nav-bar-recipe2"
                         />
                     </a>
-                    <a href='javascript:alert("준비중입니다. 기다려주세요.");' class="nav-bar-navaccount" style="background-color: #00000000;">
+                    <a href='/accountView' class="nav-bar-navaccount" style="background-color: #00000000;">
                         <img
                                 src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1a08c9b0-7874-4c06-8f53-2871e3826731/6f676c02-2824-4bdf-8760-2a2e8a663d67?org_if_sml=1902"
                                 alt="account29025"
                                 class="nav-bar-account2"
                         />
                     </a>
-                    <a href="/mainMenu" class="nav-bar-navquit" style="background-color: #00000000;">
+                    <a href="javascript:logout(true);" class="nav-bar-navquit" style="background-color: #00000000;">
                         <img
                                 src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1a08c9b0-7874-4c06-8f53-2871e3826731/c8189b06-60d4-4e4b-8d65-6102d81fc534?org_if_sml=1575"
                                 alt="leave29025"

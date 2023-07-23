@@ -40,7 +40,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    let json;
+    let json = [];
 
     window.onload = function () {
         document.getElementById("fridgeName").innerText = new URL(window.location).searchParams.get("fridgeName");
@@ -55,17 +55,16 @@
                 fridgeCode: new URL(window.location).searchParams.get("fridgeCode")
             }),
             success: function (tempJson) {
-                json = tempJson;
-
-                console.log(JSON.stringify(json));
+                console.log(JSON.stringify(tempJson));
                 let finalSelect = "";
                 let finalExpire = "";
 
-                let length = json.length;
+                let length = tempJson.length;
 
-                for(var index in json) {
-                    let miniJson = json[index]
+                for(var index in tempJson) {
+                    let miniJson = tempJson[index]
                     console.log(miniJson);
+                    json.push(miniJson);
 
                     const yyyyMMdd = miniJson.expireDate;
                     const sYear = yyyyMMdd.substring(0,4);
@@ -73,25 +72,35 @@
                     const sDate = yyyyMMdd.substring(8,10);
                     // document.getElementById("select").innerHTML += "☐<br>";
 
-                    finalSelect = miniJson.type + "<br>" + finalSelect;
-                    finalExpire = (Math.ceil((new Date(Number(sYear), Number(sMonth)-1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) + "일 남음<br>" + finalExpire;
-                }
-
-                document.getElementById("names").innerHTML += finalSelect;
-                document.getElementById("expire").innerHTML += finalExpire;
-
-                for (let i = 0; i < length; i++) {
+                    finalSelect += miniJson.type + "<br>";
+                    finalExpire += (Math.ceil((new Date(Number(sYear), Number(sMonth)-1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) + "일 남음<br>";
                     const checkBox = document.createElement("input");
                     checkBox.type = "checkbox";
                     checkBox.style.width = "20px";
                     checkBox.style.height = "20px";
                     checkBox.style.right = "7vw";
-                    checkBox.style.top = "calc(" + ((i - 2) * 23 + "px") + " + 40vh)";
-                    checkBox.id = "checkBox" + i;
+                    checkBox.style.top = "calc(" + (((index + 2) * 23 - 2) + "px") + " + 30vh)";
+                    checkBox.id = "checkBox" + index;
                     checkBox.style.position = "absolute";
                     checkBox.setAttribute("onclick", "changeButtonText()");
                     document.getElementById("mainDiv").appendChild(checkBox);
                 }
+
+                document.getElementById("names").innerHTML += finalSelect;
+                document.getElementById("expire").innerHTML += finalExpire;
+
+                // for (let i = 0; i < length; i++) {
+                //     const checkBox = document.createElement("input");
+                //     checkBox.type = "checkbox";
+                //     checkBox.style.width = "20px";
+                //     checkBox.style.height = "20px";
+                //     checkBox.style.right = "7vw";
+                //     checkBox.style.top = "calc(" + ((i - 2) * 23 + "px") + " + 40vh)";
+                //     checkBox.id = "checkBox" + i;
+                //     checkBox.style.position = "absolute";
+                //     checkBox.setAttribute("onclick", "changeButtonText()");
+                //     document.getElementById("mainDiv").appendChild(checkBox);
+                // }
             },
             error: function () {
                 console.log("AJAX error!");
@@ -117,7 +126,7 @@
 
     function recipe() {
         let queryString = "";
-        for (let i in checks()) {
+        for (let i of checks()) {
             queryString += (json[i].type + " ");
         }
         window.location.href = "/recipe?queryString=" + queryString;

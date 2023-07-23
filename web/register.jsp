@@ -154,10 +154,11 @@
                 document.cookie = "email=" + document.getElementById("email").value + ";password=" +
 
                 window.sessionStorage.setItem("accountEmail", json.email);
-                window.location.href = "/mainMenu"
+                window.sessionStorage.setItem("accountName", json.name);
+                window.location.href = "/mainMenu";
             },
             error: function () {
-
+                console.log("AJAX error!");
             }
         });
     }

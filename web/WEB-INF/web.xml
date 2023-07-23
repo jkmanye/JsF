@@ -138,6 +138,16 @@
         <url-pattern>/installation</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>account-view</servlet-name>
+        <jsp-file>/account-view.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>account-view</servlet-name>
+        <url-pattern>/accountView</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>UrlRewriteFilter</filter-name>
         <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>

@@ -40,7 +40,7 @@ html, body {
     left: 0px;
     right: 0px;
     width: 80vw;
-    height: 90vh;
+    height: 55vh;
     margin: auto;
     display: flex;
     position: absolute;
@@ -53,7 +53,7 @@ html, body {
     left: 0px;
     right: 0px;
     width: 75vw;
-    height: 85vh;
+    height: 55vh;
     margin: auto;
     display: flex;
     position: absolute;
@@ -340,7 +340,7 @@ html, body {
 .fridge-management-btnviewmore {
     top: 28vh;
     left: 6vw;
-    width: 20vw;
+    width: 70px;
     height: 30px;
     display: flex;
     overflow: hidden;

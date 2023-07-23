@@ -43,7 +43,11 @@ public class AccountDAO {
             String pw = pwObj.getString("password");
             if (!savingPW.equalsIgnoreCase(pw)) {
                 return "{\"result\": 2}";
-            } else return "{\"result\": 0}";
+            } else {
+                JSONObject user = new JSONObject(sqlHandler.queryObj("SELECT email, name FROM user WHERE email = '" + email + "';"));
+                user.put("result", 0);
+                return user.toString();
+            }
 //        }
         } catch (JSONException exception) {
             return "{\"result\": 1}";

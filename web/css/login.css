@@ -78,7 +78,7 @@ html, body {
 .login-text02 {
     top: 8px;
     color: rgba(255, 255, 255, 1);
-    width: 200px;
+    width: 50vw;
     height: auto;
     position: absolute;
     font-size: 12px;
@@ -106,7 +106,7 @@ html, body {
 .login-text04 {
     top: 8px;
     color: rgba(255, 255, 255, 1);
-    width: 70px;
+    width: 15vw;
     height: auto;
     position: absolute;
     font-size: 12px;

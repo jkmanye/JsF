@@ -48,3 +48,53 @@ self.addEventListener("fetch", (event) => {
         );
     }
 });
+
+self.addEventListener('notificationclick', event => {
+    if(event.action === 'confirm') {
+        event.waitUntil(clients.matchAll({
+            type: "window",
+            includeUncontrolled: true
+        }).then(function (clientList) {
+            let client = null;
+
+            for (let i = 0; i < clientList.length; i++) {
+                let item = clientList[i];
+
+                if (item.url) {
+                    client = item;
+                    break;
+                }
+            }
+
+            if (client && 'navigate' in client) {
+                client.focus();
+                event.notification.close();
+                return client.navigate("https://jsf-github-84edab6d943b.herokuapp.com/fridgeView");
+            }
+            else {
+                event.notification.close();
+                return clients.openWindow("https://jsf-github-84edab6d943b.herokuapp.com/fridgeView");
+            }
+        }));
+    }
+    event.notification.close();
+});
+
+function displayNotif(message) {
+    const options = {
+        title: '지식냉장고',
+        body : message,
+        icon : `../pwaManifest/icon-192x192.png`,
+        image : `../pwaManifest/icon-192x192.png`,
+        dir : 'ltr',
+        lang : 'ko-KR',
+        vibrate : [50, 50, 50, 50, 50, 50, 50],
+        badge : `../pwaManifest/icon-192x192.png`,
+        renotify : false,
+        actions : [
+            { action : 'confirm', title : '확인하기', icon : '/img/icons/android-icon-48x48.png' },
+        ]
+    };
+
+    self.registration.showNotification(title, options);
+}

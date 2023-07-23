@@ -9,18 +9,18 @@
 
 <html>
 <head>
-    <title>MtF</title>
+    <title>JsF</title>
     <meta charset="UTF-8"/>
     <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0"/>
-    <link rel="stylesheet" href="styles/core.css">
+    <link rel="stylesheet" href="css/core.css">
     <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
     <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
     <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
     <link rel="icon" href="favicon.ico">
 </head>
-<body style="background-color: #fcfcfc;">
+<body style="background-color: #222222;">
 
-<button id="installBtn" disabled>Install</button>
+<button id="installBtn" class="button_confirm" style="left: 42vw; top: calc(50vh - 15px); width: 50vw;">지식냉장고 앱 설치하기</button>
 
 <script type="text/javascript">
     let deferredPrompt;
