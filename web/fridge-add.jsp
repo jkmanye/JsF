@@ -47,6 +47,8 @@
                 fridgeCode: document.getElementById("existing").value
             }),
             success: function (json) {
+                document.getElementsByClassName('fridge-add-fridge-add')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="height: 100vh;"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+
                 // alert("Existing Query JSON: " + JSON.stringify(json));
                 if (!Object.is(JSON.stringify(json), '{}')) {
                     $.ajax({
@@ -61,6 +63,7 @@
                         }),
                         success: function (json) {
                             window.location.href = "/fridgeView";
+                            document.getElementById("loading").remove();
                         },
                         error: function () {
                             console.log("AJAX error!");
@@ -75,6 +78,8 @@
     }
 
     function addNew() {
+        document.getElementsByClassName('fridge-add-fridge-add')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+
         $.ajax({
             url: "/api/fridge",
             method: "POST",
@@ -97,6 +102,7 @@
                     }),
                     success: function (json) {
                         window.location.href = "/fridgeView";
+                        document.getElementById("loading").remove();
                     },
                     error: function () {
                         console.log("AJAX error!");

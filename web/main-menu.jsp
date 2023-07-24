@@ -65,73 +65,78 @@
 </div>
 
 <script type="text/javascript">
-    $.ajax({
-        url: "/api/user",
-        dataType: "json",
-        data: JSON.stringify({action: "getFridge", email: window.sessionStorage.getItem("accountEmail")}),
-        method: "POST",
-        processData: false,
-        success: function (json) {
-            console.log(json);
-            let fridgeArray = json.fridges.split(',');
-            fridgeCodesArray = fridgeArray.filter((item) => !Object.is(item, ''));
+    window.onload = function () {
+        document.getElementsByClassName('main-menu-main-menu')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading"><div class="spinner"></div></div>', 'text/html').body.firstChild);
 
-            for (const code of fridgeCodesArray) {
-                $.ajax({
-                    url: "/api/fridge",
-                    dataType: "json",
-                    processData: false,
-                    method: "POST",
-                    data: JSON.stringify({
-                        action: "get",
-                        fridgeCode: code
-                    }),
-                    success: function (value) {
-                        console.log(JSON.stringify(json));
+        $.ajax({
+            url: "/api/user",
+            dataType: "json",
+            data: JSON.stringify({action: "getFridge", email: window.sessionStorage.getItem("accountEmail")}),
+            method: "POST",
+            processData: false,
+            success: function (json) {
+                console.log(json);
+                let fridgeArray = json.fridges.split(',');
+                fridgeCodesArray = fridgeArray.filter((item) => !Object.is(item, ''));
 
-                        $.ajax({
-                            url: "/api/ingredients",
-                            method: "POST",
-                            dataType: "json",
-                            processData: false,
-                            data: JSON.stringify({
-                                action: "get",
-                                fridgeCode: value.code
-                            }),
-                            success: function (json) {
-                                let length = 0;
-                                let finalString = "";
+                for (const code of fridgeCodesArray) {
+                    $.ajax({
+                        url: "/api/fridge",
+                        dataType: "json",
+                        processData: false,
+                        method: "POST",
+                        data: JSON.stringify({
+                            action: "get",
+                            fridgeCode: code
+                        }),
+                        success: function (value) {
+                            console.log(JSON.stringify(json));
 
-                                for (var index in json) {
-                                    length++;
+                            $.ajax({
+                                url: "/api/ingredients",
+                                method: "POST",
+                                dataType: "json",
+                                processData: false,
+                                data: JSON.stringify({
+                                    action: "get",
+                                    fridgeCode: value.code
+                                }),
+                                success: function (json) {
+                                    let length = 0;
+                                    let finalString = "";
 
-                                    const yyyyMMdd = json[index].expireDate;
-                                    const sYear = yyyyMMdd.substring(0, 4);
-                                    const sMonth = yyyyMMdd.substring(5, 7);
-                                    const sDate = yyyyMMdd.substring(8, 10);
+                                    for (var index in json) {
+                                        length++;
 
-                                    if ((Math.ceil((new Date(Number(sYear), Number(sMonth) - 1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) <= 7) {
-                                        finalString = json[index].type + " (" + value.name + "):<br>" + (Math.ceil((new Date(Number(sYear), Number(sMonth) - 1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) + "일 남음<br><br>" + finalString;
+                                        const yyyyMMdd = json[index].expireDate;
+                                        const sYear = yyyyMMdd.substring(0, 4);
+                                        const sMonth = yyyyMMdd.substring(5, 7);
+                                        const sDate = yyyyMMdd.substring(8, 10);
+
+                                        if ((Math.ceil((new Date(Number(sYear), Number(sMonth) - 1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) <= 7) {
+                                            finalString = json[index].type + " (" + value.name + "):<br>" + (Math.ceil((new Date(Number(sYear), Number(sMonth) - 1, Number(sDate)).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))) + "일 남음<br><br>" + finalString;
+                                        }
                                     }
-                                }
 
-                                document.getElementById("text").innerHTML += finalString;
-                            },
-                            error: function () {
-                                console.log("AJAX error!");
-                            }
-                        });
-                    },
-                    error: function () {
-                        console.log("AJAX error!");
-                    }
-                });
+                                    document.getElementById("text").innerHTML += finalString;
+                                    document.getElementById("loading").remove();
+                                },
+                                error: function () {
+                                    console.log("AJAX error!");
+                                }
+                            });
+                        },
+                        error: function () {
+                            console.log("AJAX error!");
+                        }
+                    });
+                }
+            },
+            error: function () {
+                console.log('AJAX Error!');
             }
-        },
-        error: function () {
-            console.log('AJAX Error!');
-        }
-    });
+        });
+    };
 </script>
 </body>
 </html>

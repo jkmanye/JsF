@@ -53,6 +53,8 @@
     }
 
     function login() {
+        document.getElementsByClassName('login-login')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+
         $.ajax({
             url: "/api/user",
             method: "POST",
@@ -71,6 +73,9 @@
                 setCookie("logout", "false");
                 setCookie("email", document.getElementById("email").value , 720);
                 setCookie("password", document.getElementById("password").value , 720);
+
+                document.getElementById("loading").remove();
+
                 if (Object.is(new URL(window.location).searchParams.get("redirect"), null)) {
                     window.location.href = "/mainMenu";
                 } else window.location.href = ("/" + new URL(window.location).searchParams.get("redirect"));

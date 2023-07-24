@@ -247,7 +247,7 @@ html, body {
 }
 .fridge-management-text14 {
     top: 0vh;
-    right: 6vw;
+    left: 30vw;
     color: rgba(255, 255, 255, 1);
     width: 115px;
     height: auto;
@@ -263,7 +263,7 @@ html, body {
 }
 .fridge-management-text16 {
     top: 12vh;
-    right: 6vw;
+    left: 30vw;
     color: rgba(255, 255, 255, 1);
     width: 115px;
     height: auto;

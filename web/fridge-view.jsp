@@ -7,6 +7,7 @@
     <title>JsF</title>
     <link rel="stylesheet" href="css/core.css" />
     <link href="css/fridge-view.css" rel="stylesheet"/>
+    <link href="css/core.css" rel="stylesheet"/>
     <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
     <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
     <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
@@ -67,72 +68,72 @@
     let fridgeCodesArray = [];
     var fridgeCounter = 0;
 
-    function deleteFridge(index) {
-        const fullString = document.getElementById("fridge" + index).children[1].innerText;
-        const code = fullString.slice(fullString.length - 7, fullString.length - 1);
-    }
-
     function viewFridge(index) {
         const fullString = document.getElementById("fridge" + index).children[1].innerText;
         const code = fullString.slice(fullString.length - 7, fullString.length - 1);
         window.location.href = "/fridgeManagement?fridgeCode=" + code;
     }
 
-    $.ajax({
-        url: "/api/user",
-        dataType: "json",
-        data: JSON.stringify({action: "getFridge", email: window.sessionStorage.getItem("accountEmail")}),
-        method: "POST",
-        processData: false,
-        success: function (json) {
-            console.log(json);
-            let fridgeArray = json.fridges.split(',');
-            fridgeCodesArray = fridgeArray.filter((item) => !Object.is(item, ''));
+    window.onload = function () {
+        document.getElementsByClassName('fridge-view-fridge-view')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading"><div class="spinner"></div></div>', 'text/html').body.firstChild);
 
-            for (const value of fridgeCodesArray) {
-                console.log('value');
-                $.ajax({
-                    url: "/api/fridge",
-                    dataType: "json",
-                    data: JSON.stringify({fridgeCode: value, action: "get"}),
-                    method: "POST",
-                    processData: false,
-                    success: function (json) {
-                        console.log(json);
-                        const name = json.name;
-                        const id = json.code;
+        $.ajax({
+            url: "/api/user",
+            dataType: "json",
+            data: JSON.stringify({action: "getFridge", email: window.sessionStorage.getItem("accountEmail")}),
+            method: "POST",
+            processData: false,
+            success: function (json) {
+                console.log(json);
+                let fridgeArray = json.fridges.split(',');
+                fridgeCodesArray = fridgeArray.filter((item) => !Object.is(item, ''));
 
-                        fridgeCounter += 1;
-                        console.log("Fridge Number " + fridgeCounter + ": " + name + ", " + id);
+                for (const value of fridgeCodesArray) {
+                    console.log('value');
+                    $.ajax({
+                        url: "/api/fridge",
+                        dataType: "json",
+                        data: JSON.stringify({fridgeCode: value, action: "get"}),
+                        method: "POST",
+                        processData: false,
+                        success: function (json) {
+                            console.log(json);
+                            const name = json.name;
+                            const id = json.code;
 
-                        let top = 5 + 32.5 * (fridgeCounter - 1);
-                        const newFridgeDiv = new DOMParser().parseFromString('<div class="fridge-view-divfridge" id="fridge"><img src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1a08c9b0-7874-4c06-8f53-2871e3826731/47b180bd-2678-455c-90c2-18dd2016a5c9?org_if_sml=11443" alt="imgfridge15" class="fridge-view-imgfridge" /> <span class="fridge-view-text"><span>문종건의 냉장고</span></span> <a class="fridge-view-btnviewmore" style="color: #FFFFFF" href="javascript:viewFridge(' + fridgeCounter + ');" class="fridge-view-text2">자세히 보기</a></div>', 'text/html').firstChild.lastChild.lastChild;
-                        newFridgeDiv.id = "fridge" + fridgeCounter;
-                        newFridgeDiv.children[1].innerHTML = name + "\n(" + id + ")";
-                        newFridgeDiv.style.top = top.toString() + "vh";
-                        console.log(newFridgeDiv);
-                        document.getElementById("mainView").append(newFridgeDiv);
-                        console.log(newFridgeDiv.id + " Added!");
-                        document.getElementsByClassName("fridge-view-divfridgeadd")[0].style.top = (32.5 * fridgeCounter + 5) + "vh";
-                        document.getElementsByClassName("fridge-view-container")[0].style.height = "calc(20vw + " + Math.max(100, (32.5 * fridgeCounter + 18)) + "vh)";
-                        document.getElementsByClassName("fridge-view-fridge-view")[0].style.height = "calc(20vw + " + Math.max(100, (32.5 * fridgeCounter + 18)) + "vh)";
-                    },
-                    error: function () {
-                        console.log('AJAX Error!');
-                    }
-                });
+                            fridgeCounter += 1;
+                            console.log("Fridge Number " + fridgeCounter + ": " + name + ", " + id);
+
+                            let top = 5 + 32.5 * (fridgeCounter - 1);
+                            const newFridgeDiv = new DOMParser().parseFromString('<div class="fridge-view-divfridge" id="fridge"><img src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/1a08c9b0-7874-4c06-8f53-2871e3826731/47b180bd-2678-455c-90c2-18dd2016a5c9?org_if_sml=11443" alt="imgfridge15" class="fridge-view-imgfridge" /> <span class="fridge-view-text"><span>문종건의 냉장고</span></span> <a class="fridge-view-btnviewmore" style="color: #FFFFFF" href="javascript:viewFridge(' + fridgeCounter + ');" class="fridge-view-text2">자세히 보기</a></div>', 'text/html').firstChild.lastChild.lastChild;
+                            newFridgeDiv.id = "fridge" + fridgeCounter;
+                            newFridgeDiv.children[1].innerHTML = name + "\n(" + id + ")";
+                            newFridgeDiv.style.top = top.toString() + "vh";
+                            console.log(newFridgeDiv);
+                            document.getElementById("mainView").append(newFridgeDiv);
+                            console.log(newFridgeDiv.id + " Added!");
+                            document.getElementsByClassName("fridge-view-divfridgeadd")[0].style.top = (32.5 * fridgeCounter + 5) + "vh";
+                            document.getElementsByClassName("fridge-view-container")[0].style.height = "calc(20vw + " + Math.max(100, (32.5 * fridgeCounter + 18)) + "vh)";
+                            document.getElementsByClassName("fridge-view-fridge-view")[0].style.height = "calc(20vw + " + Math.max(100, (32.5 * fridgeCounter + 18)) + "vh)";
+                            document.getElementById("loading").remove();
+                        },
+                        error: function () {
+                            console.log('AJAX Error!');
+                        }
+                    });
+                }
+
+                if (Object.is(fridgeCounter, 0)) {
+                    document.getElementsByClassName("fridge-view-divfridgeadd")[0].style.top = "5vh";
+                    document.getElementsByClassName("fridge-view-container")[0].style.height = Math.max(100, (40 * fridgeCounter)) + "vh";
+                    document.getElementsByClassName("fridge-view-fridge-view")[0].style.height = Math.max(100, (40 * fridgeCounter)) + "vh";
+                }
+            },
+            error: function () {
+                console.log('AJAX Error!');
             }
-
-            if (Object.is(fridgeCounter, 0)) {
-                document.getElementsByClassName("fridge-view-divfridgeadd")[0].style.top = "5vh";
-                document.getElementsByClassName("fridge-view-container")[0].style.height = Math.max(100, (40 * fridgeCounter)) + "vh";
-                document.getElementsByClassName("fridge-view-fridge-view")[0].style.height = Math.max(100, (40 * fridgeCounter)) + "vh";
-            }
-        },
-        error: function () {
-            console.log('AJAX Error!');
-        }
-    });
+        });
+    };
 </script>
 </body>
 </html>

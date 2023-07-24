@@ -203,3 +203,15 @@ html, body {
     position: absolute;
 }
 
+/* Loading */
+.loader-container {
+    width: 100vw;
+    height: calc(100vh - 20vw);
+    position: fixed;
+    background: #00000066
+    url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") center
+    no-repeat;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}

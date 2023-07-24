@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>JsF</title>
     <link href="css/ingredients-view.css" rel="stylesheet"/>
+    <link href="css/core.css" rel="stylesheet"/>
     <link rel="manifest" href="${pageContext.request.contextPath}/pwaManifest/manifest.webmanifest">
     <link rel="apple-touch-icon" href="pwaManifest/icon-512x512.png">
     <link rel="shortcut icon" type="image/jpg" href="pwaManifest/icon-512x512.png">
@@ -44,6 +45,7 @@
 
     window.onload = function () {
         document.getElementById("fridgeName").innerText = new URL(window.location).searchParams.get("fridgeName");
+        document.getElementsByClassName('ingredients-view-ingredients-view')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
 
         $.ajax({
             url: "/api/ingredients",
@@ -79,7 +81,7 @@
                     checkBox.style.width = "20px";
                     checkBox.style.height = "20px";
                     checkBox.style.right = "7vw";
-                    checkBox.style.top = "calc(" + (((index + 2) * 23 - 2) + "px") + " + 30vh)";
+                    checkBox.style.top = "calc(" + (((index + 3) * 23 - 2) + "px") + " + 30vh)";
                     checkBox.id = "checkBox" + index;
                     checkBox.style.position = "absolute";
                     checkBox.setAttribute("onclick", "changeButtonText()");
@@ -88,6 +90,8 @@
 
                 document.getElementById("names").innerHTML += finalSelect;
                 document.getElementById("expire").innerHTML += finalExpire;
+
+                document.getElementById("loading").remove();
 
                 // for (let i = 0; i < length; i++) {
                 //     const checkBox = document.createElement("input");

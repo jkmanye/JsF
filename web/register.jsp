@@ -6,6 +6,7 @@
     <title>JsF</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link href="css/register.css" rel="stylesheet"/>
+    <link href="css/core.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -144,6 +145,7 @@
     }
 
     function register() {
+        document.getElementsByClassName('register-register')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
         $.ajax({
             url: "/api/user",
             dataType: "json",
@@ -155,6 +157,7 @@
 
                 window.sessionStorage.setItem("accountEmail", json.email);
                 window.sessionStorage.setItem("accountName", json.name);
+                document.getElementById("loading").remove();
                 window.location.href = "/mainMenu";
             },
             error: function () {

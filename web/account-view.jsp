@@ -83,8 +83,10 @@
     let fridgeCode;
 
     window.onload = function () {
+        document.getElementsByClassName('fridge-management-fridge-management')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading"><div class="spinner"></div></div>', 'text/html').body.firstChild);
         document.getElementById("email").innerText += (" " + sessionStorage.getItem("accountEmail"));
         document.getElementById("name").innerText += (" " + sessionStorage.getItem("accountName"));
+        document.getElementById("loading").remove();
     };
 </script>
 </body>

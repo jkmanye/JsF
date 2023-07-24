@@ -38,6 +38,8 @@
 </div>
 <script type="text/javascript">
     function addIngredient() {
+        document.getElementsByClassName('ingredients-add-divlogin')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+
         $.ajax({
             url: "/api/ingredients",
             dataType: "json",
@@ -51,6 +53,7 @@
             }),
             success: function (json) {
                 window.location.href = "/ingredientsView" + window.location.search;
+                document.getElementById("loading").remove();
             },
             error: function () {
                 console.log("AJAX error!");

@@ -32,13 +32,13 @@
         window.onload = function () {
             setCookie("logout", true, 2147483647);
 
-            if (! window.matchMedia('(display-mode: browser)').matches) {
-                window.location.href = "http://" + window.location.host + "/login";
-            } else window.location.href = "http://" + window.location.host + "/installation";
-
             if ("serviceWorker" in navigator) {
                 navigator.serviceWorker.register("./service-worker.js");
             }
+
+            if (!window.matchMedia('(display-mode: browser)').matches) {
+                window.location.href = "https://" + window.location.host + "/login";
+            } else window.location.href = "https://" + window.location.host + "/installation";
         };
     </script>
 
