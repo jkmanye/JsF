@@ -145,7 +145,7 @@
     }
 
     function register() {
-        document.getElementsByClassName('register-register')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+        document.getElementsByClassName('register-register')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="height: 100vh;"><div class="spinner"></div></div>', 'text/html').body.firstChild);
         $.ajax({
             url: "/api/user",
             dataType: "json",

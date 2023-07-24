@@ -62,7 +62,7 @@
     }
 
     window.onload = function () {
-        document.getElementsByClassName('fridge-management-fridge-management')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+        document.getElementsByClassName('fridge-management-fridge-management')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="height: 100vh;"><div class="spinner"></div></div>', 'text/html').body.firstChild);
 
         fridgeCode = new URL(window.location).searchParams.get("fridgeCode");
         // const code = document.getElementById("code").innerText = window.location.parameters.get("fridgeCode");

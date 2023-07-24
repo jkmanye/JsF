@@ -45,7 +45,7 @@
 
     window.onload = function () {
         document.getElementById("fridgeName").innerText = new URL(window.location).searchParams.get("fridgeName");
-        document.getElementsByClassName('ingredients-view-ingredients-view')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="100vh"><div class="spinner"></div></div>', 'text/html').body.firstChild);
+        document.getElementsByClassName('ingredients-view-ingredients-view')[0].append(new DOMParser().parseFromString('<div class="loader-container" id="loading" style="height: 100vh;"><div class="spinner"></div></div>', 'text/html').body.firstChild);
 
         $.ajax({
             url: "/api/ingredients",
