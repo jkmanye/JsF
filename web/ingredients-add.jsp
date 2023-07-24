@@ -33,7 +33,7 @@
             </div>
             <a href='javascript:addIngredient();' class="button_confirm" style="top: 40vh">추가</a>
         </div>
-        <a href='javascript:window.location.href = "/ingredientsView";' class="button_confirm" style="top: 75vh; left: 38vw;">돌아가기</a>
+        <a href='javascript:window.location.href = "/ingredientsView" + window.location.search;' class="button_confirm" style="top: 75vh; left: 38vw;">돌아가기</a>
     </div>
 </div>
 <script type="text/javascript">

@@ -81,7 +81,7 @@
                     checkBox.style.width = "20px";
                     checkBox.style.height = "20px";
                     checkBox.style.right = "7vw";
-                    checkBox.style.top = "calc(" + (((index + 3) * 23 - 2) + "px") + " + 30vh)";
+                    checkBox.style.top = "calc(" + (((index + 2) * 23 - 2) + "px") + " + 30vh)";
                     checkBox.id = "checkBox" + index;
                     checkBox.style.position = "absolute";
                     checkBox.setAttribute("onclick", "changeButtonText()");
