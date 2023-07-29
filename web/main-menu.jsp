@@ -119,21 +119,25 @@
                                     }
 
                                     document.getElementById("text").innerHTML += finalString;
-                                    document.getElementById("loading").remove();
                                 },
                                 error: function () {
                                     console.log("AJAX error!");
+                                    alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
                                 }
                             });
                         },
                         error: function () {
                             console.log("AJAX error!");
+                            alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
                         }
                     });
                 }
+
+                document.getElementById("loading").remove();
             },
             error: function () {
                 console.log('AJAX Error!');
+                alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
             }
         });
     };

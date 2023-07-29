@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6633558</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="gpcbxqwb0goqwymf@eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com" uuid="01f600b8-b6d1-43e7-abc1-1f39a6e2cb07">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

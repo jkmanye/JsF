@@ -115,10 +115,10 @@
                             document.getElementsByClassName("fridge-view-divfridgeadd")[0].style.top = (32.5 * fridgeCounter + 5) + "vh";
                             document.getElementsByClassName("fridge-view-container")[0].style.height = "calc(20vw + " + Math.max(100, (32.5 * fridgeCounter + 18)) + "vh)";
                             document.getElementsByClassName("fridge-view-fridge-view")[0].style.height = "calc(20vw + " + Math.max(100, (32.5 * fridgeCounter + 18)) + "vh)";
-                            document.getElementById("loading").remove();
                         },
                         error: function () {
                             console.log('AJAX Error!');
+                            alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
                         }
                     });
                 }
@@ -128,9 +128,12 @@
                     document.getElementsByClassName("fridge-view-container")[0].style.height = Math.max(100, (40 * fridgeCounter)) + "vh";
                     document.getElementsByClassName("fridge-view-fridge-view")[0].style.height = Math.max(100, (40 * fridgeCounter)) + "vh";
                 }
+
+                document.getElementById("loading").remove();
             },
             error: function () {
                 console.log('AJAX Error!');
+                alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
             }
         });
     };

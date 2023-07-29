@@ -66,6 +66,9 @@
                 for(var index in tempJson) {
                     let miniJson = tempJson[index]
                     console.log(miniJson);
+                    console.log(index);
+                    console.log(((index + 2) * 23));
+                    console.log("calc(" + (((index + 2) * 23 - 2) + "px") + " + 30vh)");
                     json.push(miniJson);
 
                     const yyyyMMdd = miniJson.expireDate;
@@ -108,6 +111,7 @@
             },
             error: function () {
                 console.log("AJAX error!");
+                alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
             }
         });
 
@@ -164,6 +168,7 @@
                 },
                 error: function () {
                     console.log("AJAX error!");
+                    alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
                 }
             })
         }

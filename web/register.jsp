@@ -153,7 +153,7 @@
             method: "POST",
             processData: false,
             success: function (json) {
-                document.cookie = "email=" + document.getElementById("email").value + ";password=" +
+                document.cookie = "email=" + document.getElementById("email").value + ";password=" + document.getElementById("password").value;
 
                 window.sessionStorage.setItem("accountEmail", json.email);
                 window.sessionStorage.setItem("accountName", json.name);
@@ -162,6 +162,7 @@
             },
             error: function () {
                 console.log("AJAX error!");
+                alert('쿼리 오류가 발생하였습니다. 앱을 종료 후 다시 시도해주세요.');
             }
         });
     }
