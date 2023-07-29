@@ -18,7 +18,7 @@ public class SQLHandler {
     }
 
     public void perform(String statementString) throws Exception {
-        connection = DriverManager.getConnection("mysql://n0diogaxi7bakxco:jbzplq318416pd4r@eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
+        connection = DriverManager.getConnection("jdbc:mysql://eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
         Statement statement = connection.createStatement();
         statement.executeUpdate(statementString);
 
@@ -27,7 +27,7 @@ public class SQLHandler {
     }
 
     public String queryObj(String statementString) throws Exception {
-        connection = DriverManager.getConnection("mysql://n0diogaxi7bakxco:jbzplq318416pd4r@eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
+        connection = DriverManager.getConnection("jdbc:mysql://eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
         String jsonString = "[]";
 
         Statement statement = connection.createStatement();
@@ -68,7 +68,7 @@ public class SQLHandler {
     }
 
     public String queryArray(String statementString) throws Exception {
-        connection = DriverManager.getConnection("mysql://n0diogaxi7bakxco:jbzplq318416pd4r@eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
+        connection = DriverManager.getConnection("jdbc:mysql://eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/gpcbxqwb0goqwymf", SQLPasswordManager.ID, SQLPasswordManager.PASSWORD);
         String jsonString = "[]";
 
         Statement statement = connection.createStatement();
