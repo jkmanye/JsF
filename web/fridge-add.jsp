@@ -69,7 +69,10 @@
                             console.log("AJAX error!");
                         }
                     });
-                } else alert("존재하지 않는 냉장고입니다. 코드를 확인해주세요.");
+                } else {
+                    alert("존재하지 않는 냉장고입니다. 코드를 확인해주세요.");
+                    window.location.reload();
+                }
             },
             error: function () {
                 console.log("AJAX error!");

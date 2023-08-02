@@ -66,9 +66,10 @@
                 for(var index in tempJson) {
                     let miniJson = tempJson[index]
                     console.log(miniJson);
-                    console.log(index);
-                    console.log(((index + 2) * 23));
-                    console.log("calc(" + (((index + 2) * 23 - 2) + "px") + " + 30vh)");
+                    console.log(Number(index));
+                    console.log((Number((index) + 2)));
+                    console.log(((Number(index) + 2) * 23));
+                    console.log("calc(" + (((Number(index) + 2) * 23 - 3) + "px") + " + 30vh)");
                     json.push(miniJson);
 
                     const yyyyMMdd = miniJson.expireDate;
@@ -84,7 +85,7 @@
                     checkBox.style.width = "20px";
                     checkBox.style.height = "20px";
                     checkBox.style.right = "7vw";
-                    checkBox.style.top = "calc(" + (((index + 2) * 23 - 2) + "px") + " + 30vh)";
+                    checkBox.style.top = "calc(" + (((Number(index) + 2) * 23 - 3) + "px") + " + 30vh)";
                     checkBox.id = "checkBox" + index;
                     checkBox.style.position = "absolute";
                     checkBox.setAttribute("onclick", "changeButtonText()");

@@ -18,6 +18,7 @@ public class EmailHandler {
     public void sendCaptchaMail(String to, String code) {
         String from = "noreply.mtf.authenticator@gmail.com";
         String pw = System.getenv().get("EMAIL_APPID");
+//        String pw = "nswhqozdnaqjkers";
 
         Properties props = System.getProperties();
 
